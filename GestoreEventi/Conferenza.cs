@@ -16,13 +16,45 @@ namespace GestoreEventi
         //costruttori
         public Conferenza(string titolo, DateTime data, int capienzaMassima, string relatore, double prezzo) : base(titolo,data,capienzaMassima)
         {
+            if (relatore == "" || relatore == " ")
+            {
+                throw new ArgumentException("il campo del relatore non può essere vuoto");
+            }
             this.relatore = relatore;
+            if (prezzo < 0)
+            {
+                throw new ArgumentOutOfRangeException("il prezzo non può essere negativo");
+            }
             this.prezzo = prezzo;
         }
 
-        //getter setter
-        public string Relatore { get => relatore; set => relatore = value; }
-        public double Prezzo { get => prezzo; set => prezzo = value; }
+        //getter 
+        public string GetRelatore()
+        {
+            return relatore;
+        }
+        public double GetPrezzo()
+        {
+            return prezzo;
+        }
+
+        //setter
+        public void SetRelatore(string relatore)
+        {
+            if (relatore == "" || relatore == " ")
+            {
+                throw new ArgumentException("il campo del relatore non può essere vuoto");
+            }
+            this.relatore = relatore;
+        }
+        public void SetPrezzo(double prezzo)
+        {
+            if(prezzo < 0)
+            {
+                throw new ArgumentOutOfRangeException("il prezzo non può essere negativo");
+            }
+            this.prezzo = prezzo;
+        }
 
         //metodi
         public void DataFormattata(DateTime data)
@@ -35,7 +67,7 @@ namespace GestoreEventi
         }
         public override string ToString()
         {
-           return base.ToString() + " - " + relatore + " - " + Math.Round(prezzo, 2) + " euro";
+           return base.ToString() + " - " + relatore + " - " + prezzo.ToString("F") + " euro";
         }
     }
 }

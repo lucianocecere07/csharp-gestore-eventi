@@ -137,7 +137,6 @@ Console.WriteLine();
 Console.WriteLine("aggiungiamo anche una conferenza");
 try
 {
-    
     Console.Write("inserisci il nome della conferenza: ");
     string titoloConferenza = Console.ReadLine();
     Console.Write("inserisci la data della conferenza (gg/mm/yyyy): ");
