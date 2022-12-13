@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestoreEventi
 {
+    //--- Milestone 1 ---//
     public class Evento
     {
         //proprietà
