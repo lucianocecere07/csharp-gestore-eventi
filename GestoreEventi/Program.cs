@@ -1,6 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-
 /*
 Contesto e problema da risolvere:
 Immaginate di lavorare in una software house, che ha diversi clienti. Vi è stato commissionato da parte della vostra azienda la creazione di un gestionale eventi 
@@ -10,7 +9,6 @@ II cliente necessita di un semplice programma senza interfaccia grafica (ossia c
 - Poter gestire le prenotazioni e le disdette delle sue conferenze e tenere traccia quindi dei posti prenotati e di quelli disponibili per un dato evento
 - Poter gestire un intero programma di Eventi (ossia tenere traccia di tutti gli eventi che afferiscono ad serie di Conferenze)
 */
-
 
 //--- Milestone 2 ---//
 
@@ -63,7 +61,6 @@ while (fineDisdetta == false)
     Console.WriteLine("numero di posti prenotati = " + postiPrenotati);
     Console.WriteLine("numero di posti disponibili = " + postiDisponibili);
 }
-
 
 //--- Milestone 4 ---//
 
@@ -133,5 +130,47 @@ Console.Write("inserisci una data per sapere che eventi ci saranno (gg/mm/yyyy):
 DateTime dataScelta = DateTime.Parse(Console.ReadLine());*/
 
 //Eliminare tutti gli eventi dal programma
-nuovoProgramma.SvuotaLista();
+//nuovoProgramma.SvuotaLista();
 
+//--- Bonus ---//
+Console.WriteLine();
+Console.WriteLine("--- Bonus ---");
+Console.WriteLine();
+Console.WriteLine("aggiungiamo anche una conferenza");
+try
+{
+    
+    Console.Write("inserisci il nome della conferenza: ");
+    string titoloConferenza = Console.ReadLine();
+    Console.Write("inserisci la data della conferenza (gg/mm/yyyy): ");
+    DateTime dataConferenza = DateTime.Parse(Console.ReadLine());
+    Console.Write("inserisci il numero di posti per la conferenza: ");
+    int capienzaMassimaConferenza = int.Parse(Console.ReadLine());
+    Console.Write("inserisci il relatore della conferenza: ");
+    string relatoreConferenza = Console.ReadLine();
+    Console.Write("inserisci il prezzo del biglietto per la conferenza: ");
+    double prezzoConferenza = double.Parse(Console.ReadLine());
+
+    Conferenza nuovaConferenza = new Conferenza(titoloConferenza, dataConferenza, capienzaMassimaConferenza, relatoreConferenza, prezzoConferenza);
+
+    nuovoProgramma.AggiungiEvento(nuovaConferenza);
+}
+catch (ArgumentOutOfRangeException e)
+{
+    Console.WriteLine(e.Message);
+    Console.WriteLine("reinserire la conferenza");
+}
+catch (ArgumentException e)
+{
+    Console.WriteLine(e.Message);
+    Console.WriteLine("reinserire la conferenza");
+}
+catch (Exception e)
+{
+    Console.WriteLine(e.Message);
+    Console.WriteLine("reinserire la conferenza");
+}
+
+//Stampare eventi e conferenza nel programma
+Console.WriteLine();
+nuovoProgramma.StampaLista();
