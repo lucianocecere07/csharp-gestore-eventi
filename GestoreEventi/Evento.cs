@@ -16,7 +16,7 @@ namespace GestoreEventi
         private int postiPrenotati;
 
         //costruttori
-        public Evento(string titolo, DateTime data, int capienzaMassima, int postiPrenotati)
+        public Evento(string titolo, DateTime data, int capienzaMassima, int postiPrenotati = 0)
         {
             if (titolo == "" || titolo == " ")
             {
@@ -127,7 +127,7 @@ namespace GestoreEventi
         }
         public override string ToString()
         {
-            return data + " - " + titolo;
+            return data.ToString("dd/MM/yyyy") + " - " + titolo;
         }
     }
 }

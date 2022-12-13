@@ -22,7 +22,6 @@ namespace GestoreEventi
         {
             this.Titolo = Titolo;
             this.eventi = eventi;
-            numeroEventiPresenti++;
         }
 
         //getter
@@ -33,6 +32,10 @@ namespace GestoreEventi
         private List<Evento> GetEventi()
         {
             return eventi;
+        }
+        public static int GetNumeroEventiPresenti()
+        {
+            return numeroEventiPresenti;
         }
 
 
@@ -50,6 +53,7 @@ namespace GestoreEventi
         public void AggiungiEvento(Evento eventoAggiunto)
         {
             eventi.Add(eventoAggiunto);
+            numeroEventiPresenti++;
         }
 
         // un metodo che restituisce una lista di eventi con tutti gli eventi presenti in una certa data.
@@ -62,14 +66,15 @@ namespace GestoreEventi
 
         public void StampaLista()
         {
-            foreach(Evento evento in this.eventi)
+            Console.WriteLine("ecco il programma degli eventi: " + "\n" + Titolo);
+            foreach (Evento evento in this.eventi)
             {
                 Console.WriteLine(evento);
             }
         }
         public void StampaNumeroEventi()
         {
-            Console.WriteLine("eventi presenti): " + numeroEventiPresenti);
+            Console.WriteLine("il numero di eventi nel programma è: " + GetNumeroEventiPresenti());
         }
         public void SvuotaLista()
         {
