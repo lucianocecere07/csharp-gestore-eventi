@@ -55,14 +55,17 @@ namespace GestoreEventi
             eventi.Add(eventoAggiunto);
             numeroEventiPresenti++;
         }
-
-        // un metodo che restituisce una lista di eventi con tutti gli eventi presenti in una certa data.
-        /*
-        public List<Evento> eventiInData(DateTime dataScelta)
+        
+        public void EventiInData(DateTime dataScelta)
         {
-            return List<Evento> eventiData = new List<Evento>();
+            foreach (Evento evento in this.eventi)
+            {
+                if(dataScelta == evento.GetData())
+                {
+                    Console.WriteLine(evento);
+                }
+            }
         }
-        */
 
         public void StampaLista()
         {

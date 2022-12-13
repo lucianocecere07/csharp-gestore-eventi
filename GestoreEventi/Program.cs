@@ -121,13 +121,11 @@ nuovoProgramma.StampaNumeroEventi();
 //Stampare la lista di eventi inseriti nel programma
 nuovoProgramma.StampaLista();
 
-/*Chiedere all'utente una data e stampate tutti gli eventi in quella data. Usate il metodo che vi restituisce 
-una lista di eventi in una data dichiarata e 
-create un metodo statico che si occupa di stampare una lista di eventi che gli arriva.
-Passate dunque la lista dieventi in data al metodo statico, per poterla stampare.
+//stampare tutti gli eventi in quella data
 Console.WriteLine();
 Console.Write("inserisci una data per sapere che eventi ci saranno (gg/mm/yyyy): ");
-DateTime dataScelta = DateTime.Parse(Console.ReadLine());*/
+DateTime dataScelta = DateTime.Parse(Console.ReadLine());
+nuovoProgramma.EventiInData(dataScelta);
 
 //Eliminare tutti gli eventi dal programma
 //nuovoProgramma.SvuotaLista();
