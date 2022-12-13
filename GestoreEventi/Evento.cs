@@ -16,7 +16,7 @@ namespace GestoreEventi
         private int postiPrenotati;
 
         //costruttori
-        public Evento(string titolo, DateTime data, int capienzaMassima, int postiPrenotati = 0)
+        public Evento(string titolo, DateTime data, int capienzaMassima, int postiPrenotati)
         {
             if (titolo == "" || titolo == " ")
             {
@@ -33,9 +33,9 @@ namespace GestoreEventi
                 throw new ArgumentOutOfRangeException("la capienza massima non può essere 0 o inferiore");
             }
             this.capienzaMassima = capienzaMassima;
-            if (postiPrenotati < 0)
+            if (postiPrenotati < 0 || postiPrenotati > capienzaMassima)
             {
-                throw new ArgumentOutOfRangeException("i posti prenotati non possono essere negativi");
+                throw new ArgumentOutOfRangeException("il numero di posti prenotati è errato");
             }
             this.postiPrenotati = postiPrenotati;
         }
@@ -85,9 +85,9 @@ namespace GestoreEventi
         }
         private void SetPostiPrenotati(int postiPrenotati)
         {
-            if (postiPrenotati < 0)
+            if (postiPrenotati < 0 || postiPrenotati > capienzaMassima)
             {
-                throw new ArgumentOutOfRangeException("i posti prenotati non possono essere negativi");
+                throw new ArgumentOutOfRangeException("il numero di posti prenotati è errato");
             }
             this.postiPrenotati = postiPrenotati;
         }

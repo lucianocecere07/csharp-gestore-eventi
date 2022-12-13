@@ -50,6 +50,10 @@ while (fineDisdetta == false)
     {
         Console.Write("indica il numero di posti da disdire: ");
         int postiDisdetti = int.Parse(Console.ReadLine());
+        if(postiDisdetti < 0 || postiDisdetti > postiPrenotati)
+        {
+            throw new Exception("impossibile disdire questo numero di posti");
+        }
         postiPrenotati = postiPrenotati - postiDisdetti;
         postiDisponibili = postiDisponibili + postiDisdetti;
     }
